@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>您的专属练习</title>
+	<link rel="shortcut icon" type="image/x-icon" href="Contents/images/favicon.ico" media="screen">
+    <link rel="stylesheet" href="Contents/css/layui2.css">
+    <link rel="stylesheet" href="Contents/css/same.css"/>
+    <link rel="stylesheet" href="Contents/css/begin_testing3.css"/>
+    <script src="Contents/layui.js"></script>
+    <!--[if lt IE 9]>
+		<script src="Contents/js/html5shiv.min.js"></script>
+		<script src="Contents/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background:#99CCCC;">
+<!--左侧 start-->
+<div class="test_left">
+    <div class="big_title">
+        <h1>私人定制🤗</h1>
+    </div>
+    <div class="testing_intro">
+        <p>试卷分数：<span id="full">100</span>分</p>
+        <p>试题数量：<span id="tcunt">50</span>题</p>
+        <p>答题时限：<span id="tlimt">150</span>分钟</p>
+		
+        <div class="surplus">
+            剩余时间：
+            <span class="time" id="countDown">
+                <i>2</i>小时<i>30</i>分<i>00</i>秒
+            </span>
+        </div>
+        <!-- <div class="layui-btn layui-btn-radius layui-btn-blue layui-btn-fluid" id="StartForm">开始答题</div> -->
+        <div class="split">
+			<a class="layui-btn layui-btn-radius layui-btn-normal bester" id="SelectExam">选择试卷</a>
+			<a class="layui-btn layui-btn-radius layui-btn-blue bester" id="StartForm">开始答题</a>
+		</div>
+    </div>
+    <div class="testing_change">
+        <dl class="change_font">
+            <dt>调整字号：</dt>
+            <dd>
+                <i class="font_size12">12</i>
+                <i class="font_size14">14</i>
+                <i class="font_size16">16</i>
+                <i class="font_size18">18</i>
+                <i class="font_size20">20</i>
+            </dd>
+        </dl>
+        <dl class="change_color">
+            <dt>调整背景：</dt>
+            <dd>
+                <span class="col_white"></span>
+                <span class="col_yellow"></span>
+                <span class="col_red"></span>
+                <span class="col_orange"></span>
+                <span class="col_purple"></span>
+                <span class="col_green"></span>
+                <span class="col_blue"></span>
+            </dd>
+        </dl>
+    </div>
+    <div class="hand_paper">
+		<div class="layui-btn layui-btn-radius layui-btn-danger layui-btn-fluid split" id="SendForm">交卷</div>
+        <div class="split">
+			<a class="layui-btn layui-btn-radius layui-btn-normal bester" id="downLoad">下载试卷</a>
+			<a class="layui-btn layui-btn-radius layui-btn-warm bester" id="outWord">导出试卷</a>
+		</div>
+		<!--<a href="javascript:window.opener=null;window.open('','_self');window.close();" class="layui-btn layui-btn-radius layui-btn-primary layui-btn-fluid" id="outForm">离开本页</a>-->
+    </div>
+</div>
+<!--左侧 end-->
+
+<!--中间 start-->
+<div class="layui-container-fiuld test_center">
+    <div class="testing_title">
+        <h1 id="exname"></h1>
+    </div>
+    <div class="testing_select"></div>
+    <div class="testing_nav" id="examContent"></div>
+</div>
+<!--中间 end-->
+
+<!--右侧 start-->
+<div class="test_right">
+    <div class="topic_card">
+        <div class="card_title">
+            <h2>🌼专属答题卡🌼</h2>
+            <p>说明：点击题号即可定位到试题啦</p>
+            <div class="card_title_kuai">
+                <p class="card_do">
+                    <span></span>已答
+                </p>
+                <p class="card_not">
+                    <span></span>未答
+                </p>
+                <p class="card_tag">
+                    <span><i></i></span>标记
+                </p>
+            </div>
+        </div>
+        <div class="sel_auto">
+			<div class="sel_topic" id="sel_auto"></div>
+		</div>
+    </div>
+</div>
+<!--右侧 end-->
+
+<!-- 弹出框 start -->
+<div id="pop-up" class="pop-up">
+    <img src="./Contents/images/index/stop_tu.jpg" alt=""/>
+    <div class="pop-button">继续做题</div>
+</div>
+<!-- 弹出框 end -->
+<!-- 弹出框2 start -->
+<div id="pop-up2" class="pop-up2">
+    <div class="right_answer">
+        <h2>正确答案：<i>A</i></h2>
+        <div class="right_export">
+            <span>知识点解析:</span>
+            <p>《中华民国宪法草案》(1913年)是北洋政府统治时期的第一部宪法草案，又称为“天坛宪草”。“天坛宪草”采用了资产阶级三权分立的宪法原则，确认了民主共和制度，体现了《临时约法》的宪法精神。故选A项。《中华民国宪法草案》(1936年)又称为“五五宪草”，它主要秉承了《训政纲领》的宗旨，不可能确立三权分立的宪法原则。《中华民国l临时约法》也采取三权分立原则，但制定于南京临时政府时期，而不是北洋政府时期。故排除B、D项。
+            </p>
+        </div>
+    </div>
+</div>
+<!-- 弹出框2 end -->
+<!-- 弹出框3 start -->
+<div id="pop-up3" class="pop-up3" style="display: none;">
+    <div class="right_answer">
+        <h2>护理学专业知识真题：
+            <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">卷1</button>
+            <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">卷2</button>
+            <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">卷3</button>
+            <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">卷4</button>
+            <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">卷5</button>
+            <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">卷6</button>
+            <button type="button" class="layui-btn layui-btn-primary layui-btn-radius">卷7</button>
+        </h2>
+        <div class="right_export">
+            <span>护理学专业知识模拟:</span>
+            <p>《中华民国宪法草案》(1913年)是北洋政府统治时期的第一部宪法草案，又称为“天坛宪草”。“天坛宪草”采用了资产阶级三权分立的宪法原则，确认了民主共和制度，体现了《临时约法》的宪法精神。故选A项。《中华民国宪法草案》(1936年)又称为“五五宪草”，它主要秉承了《训政纲领》的宗旨，不可能确立三权分立的宪法原则。《中华民国l临时约法》也采取三权分立原则，但制定于南京临时政府时期，而不是北洋政府时期。故排除B、D项。
+            </p>
+        </div>
+    </div>
+</div>
+<!-- 弹出框3 end -->
+<!--交卷弹框 start-->
+<div class="submit_layer">
+    <div class="result_box">
+        <h1 id="examName">很棒🍭，系统暂不能统计错题，点X查看答案详解叭(●ˇ∀ˇ●)</h1>
+        <!-- <h1 id="examName">2017国家司法考试卷二（民法）——真题试卷</h1> -->
+        <div class="result_c">
+            <div class="result_r">
+                <table class="layui-table" lay-size="lg" lay-skin="nob">
+                    <colgroup>
+                        <col>
+                        <col width="150">
+                        <col width="150">
+                        <col width="150">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>题型</th>
+                        <th>试题总数</th>
+                        <th>答对题数</th>
+                        <th>答题正确率</th>
+                    </tr>
+                    </thead>
+                    <tbody class="tbodyTopic">
+                    </tbody>
+                </table>
+            </div>
+            <img class="jiao_tu1" src="Contents/images/jiao_tu1.png" alt="">
+            <img class="jiao_tu2" src="Contents/images/jiao_tu2.png" alt="">
+        </div>
+        <i class="close">×</i>
+    </div>
+</div>
+<!--交卷弹框 end-->
+<div class="overmark"></div>
+<!-- <script type="text/javascript" src="Contents/js/laycommon.js"></script> -->
+<script type="text/javascript" src="Contents/js/begin_testing2.js?v=20200716"></script>
+</body>
+</html>
