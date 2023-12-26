@@ -68,7 +68,8 @@ layui.use(['form', 'element', 'layer'], function () {
         console.log("进来了",filename);
         $(".hand_paper .layui-btn").addClass("layui-disabled");
         // RequestJson("exam/getExamList.action", {examID: _exid, account: _account, token: _token}, function (data) {
-        RequestJson("/data/getExamList."+ filename +".action", {examID: _exid, account: _account, token: _token}, function (data) {
+        //RequestJson("/data/getExamList."+ filename +".action", {examID: _exid, account: _account, token: _token}, function (data) {
+        RequestJson("https://raw.githubusercontent.com/ZCYUer/exam.github.io/master/data/getExamList."+ filename +".action", {examID: _exid, account: _account, token: _token}, function (data) {
             if (data.code == "1") {
                 var newspecial = data.examTypeCode;
                 special = newspecial.substring(0,4);
