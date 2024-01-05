@@ -218,6 +218,7 @@ layui.use(['form', 'element', 'layer'], function () {
     function loadStartFirst(){
         $(".hand_paper .layui-btn").addClass("layui-disabled");
         $("#StartForm").addClass("layui-disabled");
+        alert("试卷加载失败问题已修复！抱歉👉👈 有问题可随时联系");
     }
     loadStartFirst();
 
