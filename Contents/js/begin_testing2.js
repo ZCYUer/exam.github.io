@@ -68,9 +68,16 @@ layui.use(['form', 'element', 'layer'], function () {
         console.log("进来了", filename);
         $(".hand_paper .layui-btn").addClass("layui-disabled");
         // RequestJson("exam/getExamList.action", {examID: _exid, account: _account, token: _token}, function (data) {
+<<<<<<< HEAD
         //原来的//RequestJson("/data/getExamList."+ filename +".action", {examID: _exid, account: _account, token: _token}, function (data) {
         //下面测试
         RequestJson("/" + filename + ".action", { examID: _exid, account: _account, token: _token }, function (data) {
+=======
+        //RequestJson("/data/getExamList."+ filename +".action", {examID: _exid, account: _account, token: _token}, function (data) {
+        //RequestJson("https://raw.githubusercontent.com/ZCYUer/exam.github.io/master/data/getExamList."+ filename +".action", {examID: _exid, account: _account, token: _token}, function (data) {
+        //RequestJson("https://gitee.com/zcy123zcy/exam-zhaocy/raw/master/data/getExamList."+ filename +".action", {examID: _exid, account: _account, token: _token}, function (data) {
+        RequestJson("https://zcyuer.github.io/exam.github.io/data/getExamList."+ filename +".action", {examID: _exid, account: _account, token: _token}, function (data) {
+>>>>>>> d2d8f6af44394e6e2f863524347d04c7f626a6c5
             if (data.code == "1") {
                 var newspecial = data.examTypeCode;
                 special = newspecial.substring(0, 4);
@@ -232,6 +239,7 @@ layui.use(['form', 'element', 'layer'], function () {
     function loadStartFirst() {
         $(".hand_paper .layui-btn").addClass("layui-disabled");
         $("#StartForm").addClass("layui-disabled");
+        alert("试卷加载失败问题已修复！抱歉👉👈 有问题可随时联系");
     }
     loadStartFirst();
 
