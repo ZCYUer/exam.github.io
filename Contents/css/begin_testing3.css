@@ -1,829 +1,1064 @@
+/* 手机适配 */
+@media only screen and (max-width: 767px) {
+    .test_left {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 1000;
+        width: 262px;
+        height: 600px;
+        background: #fff;
+        padding: 0 20px;
+        border-right: 10px solid #f4f4f4;
+        overflow: hidden;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .test_center {
+        position: relative;
+        width: 100%;
+        height: 800px;
+        min-width: 1400px;
+        padding: 0 292px 0 262px;
+        margin-bottom: 20px;
+        overflow: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .test_right {
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1000;
+        width: 292px;
+        height: 600px;
+        background: #fff;
+        padding: 0 20px;
+        border-left: 10px solid #f4f4f4;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+    }
+
+    .result_box {
+        position: absolute;
+        top: 120px;
+        left: 300px;
+        width: 800px;
+        height: 500px;
+        margin: -250px 0 0 -400px;
+        background: #fff;
+        padding: 0 20px 20px;
+        border-radius: 8px;
+        overflow: hidden;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}
+
 /***************************试卷页面 start**************************************************************/
 /***************左侧 start***************/
-.test_left{
-    position:fixed;
-    left:0;
-    top:0;
-    z-index:1000;
-    width:262px;
-    height:100%;
-    background:#fff;
-    padding:0 20px;
-    border-right:10px solid #f4f4f4;
-    overflow:hidden;
+.test_left {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    width: 262px;
+    height: 100%;
+    background: #fff;
+    padding: 0 20px;
+    border-right: 10px solid #f4f4f4;
+    overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.big_title{
-    width:100%;
-    padding:20px 0;
+
+.big_title {
+    width: 100%;
+    padding: 20px 0;
     text-align: center;
-    border-bottom:1px dashed #e5e5e5;
-    overflow:hidden;
+    border-bottom: 1px dashed #e5e5e5;
+    overflow: hidden;
 }
-.big_title h1{
-    font-size:28px;
-    font-weight:nomal;
+
+.big_title h1 {
+    font-size: 28px;
+    font-weight: nomal;
 }
-.testing_intro{
-    width:100%;
-    padding:12px 0 20px;
-    border-bottom:1px dashed #e5e5e5;
-    overflow:hidden;
+
+.testing_intro {
+    width: 100%;
+    padding: 12px 0 20px;
+    border-bottom: 1px dashed #e5e5e5;
+    overflow: hidden;
 }
-.testing_intro p{
-    width:100%;
-    line-height:35px;
-    color:#333;
-    font-size:13px;
-    padding:0 10px;
+
+.testing_intro p {
+    width: 100%;
+    line-height: 35px;
+    color: #333;
+    font-size: 13px;
+    padding: 0 10px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.testing_intro .surplus{
-    width:100%;
-    line-height:35px;
-    color:#ff0000;
-    font-size:13px;
-    padding:0 10px;
-    overflow:hidden;
+
+.testing_intro .surplus {
+    width: 100%;
+    line-height: 35px;
+    color: #ff0000;
+    font-size: 13px;
+    padding: 0 10px;
+    overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 .testing_intro .startAnswer {
-    display:block;
-    width:165px;
-    height:35px;
-    line-height:35px;
-    background:#31c6ce;
+    display: block;
+    width: 165px;
+    height: 35px;
+    line-height: 35px;
+    background: #31c6ce;
     text-align: center;
-    color:#fff;
-    margin:10px auto 0;
-    overflow:hidden;
+    color: #fff;
+    margin: 10px auto 0;
+    overflow: hidden;
     cursor: pointer;
 }
 
-.testing_change{
-    width:100%;
-    padding:10px 0;
-    border-bottom:1px dashed #eee;
-    overflow:hidden;
+.testing_change {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    overflow: hidden;
 }
-.change_font,.change_color{
-    width:100%;
-    overflow:hidden;
+
+.change_font,
+.change_color {
+    width: 100%;
+    overflow: hidden;
 }
-.change_font dt,.change_color dt{
-    float:left;
-    color:#333;
-    line-height:30px;
+
+.change_font dt,
+.change_color dt {
+    float: left;
+    color: #333;
+    line-height: 30px;
 }
-.change_font dd,.change_color dd{
-    float:left;
-    line-height:30px;
-    overflow:hidden;
+
+.change_font dd,
+.change_color dd {
+    float: left;
+    line-height: 30px;
+    overflow: hidden;
 }
-.change_font dd i{
-    display:inline-block;
-    width:35px;
+
+.change_font dd i {
+    display: inline-block;
+    width: 35px;
     text-align: center;
-    overflow:hidden;
-    cursor:pointer;
-}
-.change_font dd i.font_size12{
-    font-size:12px;
-}
-.change_font dd i.font_size14{
-    font-size:14px;
-}.change_font dd i.font_size16{
-     font-size:16px;
- }
-.change_font dd i.font_size18{
-    font-size:18px;
-}
-.change_font dd i.font_size20{
-    font-size:20px;
+    overflow: hidden;
+    cursor: pointer;
 }
 
-.change_color dd span{
-    float:left;
-    width:21px;
-    height:20px;
-    border:1px solid #eee;
-    margin:5px 0;
-    overflow:hidden;
-    cursor:pointer;
+.change_font dd i.font_size12 {
+    font-size: 12px;
 }
-.change_color dd span:not(:first-child){
-    margin-left:5px;
-}
-.change_color span.col_white{ background:#f4f4f4;}
-.change_color span.col_purple{ background:#CCCCFF;}
-.change_color span.col_red{ background:#FFCCCC;}
-.change_color span.col_orange{ background:#FFCC99;}
-.change_color span.col_yellow{ background:#FFFF99;}
-.change_color span.col_green{ background:#99CCCC;}
-.change_color span.col_blue{ background:#99CCFF;}
 
-.hand_paper{
-    width:100%;
-    margin:10px 0;
-    overflow:hidden;
+.change_font dd i.font_size14 {
+    font-size: 14px;
 }
-.hand_paper .split{ margin-bottom:15px;}
-.hand_paper .bester{ width:45%;}
-.hand_paper a.leave{ background:#999;}
-.hand_paper a.download{
-    float:left;
-    width:125px;
-    background:#3399CC;
+
+.change_font dd i.font_size16 {
+    font-size: 16px;
 }
-.hand_paper a.export{
-    float:right;
-    width:125px;
-    background:#339933;
+
+.change_font dd i.font_size18 {
+    font-size: 18px;
 }
+
+.change_font dd i.font_size20 {
+    font-size: 20px;
+}
+
+.change_color dd span {
+    float: left;
+    width: 21px;
+    height: 20px;
+    border: 1px solid #eee;
+    margin: 5px 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.change_color dd span:not(:first-child) {
+    margin-left: 5px;
+}
+
+.change_color span.col_white {
+    background: #f4f4f4;
+}
+
+.change_color span.col_purple {
+    background: #CCCCFF;
+}
+
+.change_color span.col_red {
+    background: #FFCCCC;
+}
+
+.change_color span.col_orange {
+    background: #FFCC99;
+}
+
+.change_color span.col_yellow {
+    background: #FFFF99;
+}
+
+.change_color span.col_green {
+    background: #99CCCC;
+}
+
+.change_color span.col_blue {
+    background: #99CCFF;
+}
+
+.hand_paper {
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.hand_paper .split {
+    margin-bottom: 15px;
+}
+
+.hand_paper .bester {
+    width: 45%;
+}
+
+.hand_paper a.leave {
+    background: #999;
+}
+
+.hand_paper a.download {
+    float: left;
+    width: 125px;
+    background: #3399CC;
+}
+
+.hand_paper a.export {
+    float: right;
+    width: 125px;
+    background: #339933;
+}
+
 /***************左侧 end***************/
 
 /***************中间 start***************/
-.test_center{
-    position:relative;
-    width:100%;
-    min-width:1400px;
-    padding:0 292px 0 262px;
-    margin-bottom:20px;
-    overflow:auto;
+.test_center {
+    position: relative;
+    width: 100%;
+    min-width: 1400px;
+    padding: 0 292px 0 262px;
+    margin-bottom: 20px;
+    overflow: auto;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-.testing_title{
-    width:100%;
-    padding:30px 20px;
-    background:#fff;
-    margin:0 auto 10px;
-    overflow:hidden;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-.testing_title h1{
-    width:100%;
-    line-height:35px;
-    font-size:22px;
-    color:#33336c;
-    border-bottom:1px dashed #e5e5e5;
-    text-align: center;
-    padding-bottom:20px;
-    overflow:hidden;
 }
 
-.testing_select{
-    width:100%;
-    background:#fff;
-    overflow:hidden;
+.testing_title {
+    width: 100%;
+    padding: 30px 20px;
+    background: #fff;
+    margin: 0 auto 10px;
+    overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.testing_select.active{
-    position:fixed;
-    top:0;
-    z-index:999;
-    margin-right:312px;
-    background:#eee;
-    box-shadow: 0 0 15px rgba(0,0,0,.2);
+
+.testing_title h1 {
+    width: 100%;
+    line-height: 35px;
+    font-size: 22px;
+    color: #33336c;
+    border-bottom: 1px dashed #e5e5e5;
+    text-align: center;
+    padding-bottom: 20px;
+    overflow: hidden;
 }
-.testing_select a{
-    display:inline-block;
-    line-height:50px;
-    padding:0 15px;
+
+.testing_select {
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
-.testing_select a.col_qing{
-    color:#24a9b0;
-    font-weight:bold;
-    border-top:3px solid #31c6ce;
-    background:url("../images/index/icon_tiao.png") repeat-x;
+
+.testing_select.active {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    margin-right: 312px;
+    background: #eee;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+}
+
+.testing_select a {
+    display: inline-block;
+    line-height: 50px;
+    padding: 0 15px;
+}
+
+.testing_select a.col_qing {
+    color: #24a9b0;
+    font-weight: bold;
+    border-top: 3px solid #31c6ce;
+    background: url("../images/index/icon_tiao.png") repeat-x;
 }
 
 /*试题 start*/
-.testing_nav{
-    width:100%;
-    margin:10px 0;
-    overflow:hidden;
+.testing_nav {
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
 }
-.question_all{
-    width:100%;
-    overflow:hidden;
-	margin-bottom:10px;
+
+.question_all {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
-.question_topic{
-    width:100%;
-    overflow:hidden;
+
+.question_topic {
+    width: 100%;
+    overflow: hidden;
 }
-.topic_type{
-    width:100%;
-    background:#fff;
-    padding:15px 0;
-    overflow:hidden;
+
+.topic_type {
+    width: 100%;
+    background: #fff;
+    padding: 15px 0;
+    overflow: hidden;
 }
-.topic_type h2{
-    float:left;
-    height:30px;
-    line-height:30px;
-    font-size:16px;
-    font-weight:bold;
-    overflow:hidden;
+
+.topic_type h2 {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: hidden;
 }
-.topic_type h2 em{
-    float:left;
-    width:5px;
-    height:22px;
-    margin:4px 20px 0 0;
-    background:#31c6ce;
+
+.topic_type h2 em {
+    float: left;
+    width: 5px;
+    height: 22px;
+    margin: 4px 20px 0 0;
+    background: #31c6ce;
 }
-.topic_type h2 span{
-    font-size:12px;
-    color:#999;
-    line-height:12px;
-    margin-left:15px;
+
+.topic_type h2 span {
+    font-size: 12px;
+    color: #999;
+    line-height: 12px;
+    margin-left: 15px;
 
 }
 
-.question_all_same,.question_stem{
-    position:relative;
-    width:100%;
-    background:#fff;
-    padding:0 20px 20px;
-    margin-bottom:10px;
-    overflow:hidden;
+.question_all_same,
+.question_stem {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    padding: 0 20px 20px;
+    margin-bottom: 10px;
+    overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.question_stem{
-    margin:0;
-	border-top:10px solid #f4f4f4;
-	padding-top:20px;
-}
-.question_content{
-    display:block;
-    text-align:left;
-    margin-top:20px;
-    overflow:hidden;
+
+.question_stem {
+    margin: 0;
+    border-top: 10px solid #f4f4f4;
+    padding-top: 20px;
 }
 
-pre{display:block;font-family:"Times New Roman";text-align:justify;line-height:25px;}
-.question_content span.num{
-    float:left;
-    width:25px;
-    height:25px;
-    line-height:25px;
-    background:#31c6ce;
-    border-radius:50%;
-    font-size:12px;
-    color:#fff;
-    text-align:center;
-    margin-right:10px;
-    overflow:hidden;
-}
-.question_content .layui-form-item{
-    margin:10px 0 15px;
+.question_content {
+    display: block;
+    text-align: left;
+    margin-top: 20px;
+    overflow: hidden;
 }
 
-.question_all_list{
-    position:relative;
-    width:100%;
-    background:#fff;
-    padding:20px 0;
-    overflow:hidden;
+pre {
+    display: block;
+    font-family: "Times New Roman";
+    text-align: justify;
+    line-height: 25px;
+}
+
+.question_content span.num {
+    float: left;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    background: #31c6ce;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.question_content .layui-form-item {
+    margin: 10px 0 15px;
+}
+
+.question_all_list {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    padding: 20px 0;
+    overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.question_all_list .question_all_same{
-    padding:0 20px;
-    margin:0;
+
+.question_all_list .question_all_same {
+    padding: 0 20px;
+    margin: 0;
 }
-.question_all_list .question_btn{
-    margin-bottom:15px;
+
+.question_all_list .question_btn {
+    margin-bottom: 15px;
 }
-.question_all_list .question_content{
-    margin-top:0;
+
+.question_all_list .question_content {
+    margin-top: 0;
 }
-.question_all_list .question_title{
-    width:100%;
-    min-height:50px;
-    background:#eee;
-    padding:13px;
+
+.question_all_list .question_title {
+    width: 100%;
+    min-height: 50px;
+    background: #eee;
+    padding: 13px;
     border-bottom: 1px dashed #fff;
     cursor: pointer;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.testing_nav .layui-form-radio>i:hover, .layui-form-radioed>i{
-    color:#FF9900;
+
+.testing_nav .layui-form-radio>i:hover,
+.layui-form-radioed>i {
+    color: #FF9900;
 }
+
 .testing_nav .layui-form-checked[lay-skin=primary] i {
-    border-color:#FF9900;
-    background-color:#FF9900;
+    border-color: #FF9900;
+    background-color: #FF9900;
 }
+
 .testing_nav .layui-form-checkbox[lay-skin=primary]:hover i {
-    border-color:#FF9900;
+    border-color: #FF9900;
 }
+
 /*试题 end*/
 
 /*标记 start*/
-.question_btn{
-    width:100%;
-    overflow:hidden;
-}
-.question_btn>div{
-    float:left;
-    width:90px;
-    height:30px;
-    line-height:30px;
-    background:#f1f1f1;
-    border-radius:5px;
-    text-align:center;
-    font-size:13px;
-    margin-right:20px;
-    overflow:hidden;
-    cursor:pointer;
-}
-.question_btn>div.change{
-    color:#fff;
-    background:#31c6ce;
-}
-.question_btn>div i{
-    display:inline-block;
-    width:16px;
-    height:16px;
-    vertical-align:-3px;
-    margin-right:5px;
-    overflow:hidden;
-}
-.question_btn>div.q_tag i{
-    background:url("../images/index/q_tag1.png") no-repeat center;
-    background-size:cover;
-}
-.question_btn>div.q_tag.change i{
-    background:url("../images/index/q_tag2.png") no-repeat center;
-    background-size:cover;
-}
-.question_btn>div.q_undo i{
-    background:url("../images/index/q_undo1.png") no-repeat center;
-    background-size:cover;
-}
-.question_btn>div.q_undo.change i{
-    background:url("../images/index/q_undo2.png") no-repeat center;
-    background-size:cover;
-}
-.question_btn>div.q_wrong i{
-    background:url("../images/index/q_wrong1.png") no-repeat center;
-    background-size:cover;
-}
-.question_btn>div.q_wrong.change i{
-    background:url("../images/index/q_wrong2.png") no-repeat center;
-    background-size:cover;
-}
-.question_btn>div.q_collect i{
-    background:url("../images/index/q_collect1.png") no-repeat center;
-    background-size:cover;
-}
-.question_btn>div.q_collect.change i{
-    background:url("../images/index/q_collect2.png") no-repeat center;
-    background-size:cover;
-}
-.question_btn>div.q_answer i{
-    background:url("../images/index/q_answer1.png") no-repeat center;
-    background-size:cover;
-}
-.question_btn>div.q_answer.change i{
-    background:url("../images/index/q_answer2.png") no-repeat center;
-    background-size:cover;
+.question_btn {
+    width: 100%;
+    overflow: hidden;
 }
 
-.biaoji{
-    position:absolute;
-    top:0;
-    right:0;
-    width:50px;
-    height:50px;
-    background:url("../images/index/icon_biaoji.png") no-repeat center;
-    overflow:hidden;
-    display:none;
+.question_btn>div {
+    float: left;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 13px;
+    margin-right: 20px;
+    overflow: hidden;
+    cursor: pointer;
 }
+
+.question_btn>div.change {
+    color: #fff;
+    background: #31c6ce;
+}
+
+.question_btn>div i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: -3px;
+    margin-right: 5px;
+    overflow: hidden;
+}
+
+.question_btn>div.q_tag i {
+    background: url("../images/index/q_tag1.png") no-repeat center;
+    background-size: cover;
+}
+
+.question_btn>div.q_tag.change i {
+    background: url("../images/index/q_tag2.png") no-repeat center;
+    background-size: cover;
+}
+
+.question_btn>div.q_undo i {
+    background: url("../images/index/q_undo1.png") no-repeat center;
+    background-size: cover;
+}
+
+.question_btn>div.q_undo.change i {
+    background: url("../images/index/q_undo2.png") no-repeat center;
+    background-size: cover;
+}
+
+.question_btn>div.q_wrong i {
+    background: url("../images/index/q_wrong1.png") no-repeat center;
+    background-size: cover;
+}
+
+.question_btn>div.q_wrong.change i {
+    background: url("../images/index/q_wrong2.png") no-repeat center;
+    background-size: cover;
+}
+
+.question_btn>div.q_collect i {
+    background: url("../images/index/q_collect1.png") no-repeat center;
+    background-size: cover;
+}
+
+.question_btn>div.q_collect.change i {
+    background: url("../images/index/q_collect2.png") no-repeat center;
+    background-size: cover;
+}
+
+.question_btn>div.q_answer i {
+    background: url("../images/index/q_answer1.png") no-repeat center;
+    background-size: cover;
+}
+
+.question_btn>div.q_answer.change i {
+    background: url("../images/index/q_answer2.png") no-repeat center;
+    background-size: cover;
+}
+
+.biaoji {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: url("../images/index/icon_biaoji.png") no-repeat center;
+    overflow: hidden;
+    display: none;
+}
+
 /*标记 end*/
 /***************中间 end***************/
 
 /***************右侧 start***************/
-.test_right{
-    position:fixed;
-    right:0;
-    top:0;
-	bottom:0;
-    z-index:1000;
-    width:292px;
-    height:100%;
-    background:#fff;
-    padding:0 20px;
-    border-left:10px solid #f4f4f4;
-    overflow-x:hidden;
-	overflow-y:auto;
+.test_right {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    width: 292px;
+    height: 100%;
+    background: #fff;
+    padding: 0 20px;
+    border-left: 10px solid #f4f4f4;
+    overflow-x: hidden;
+    overflow-y: auto;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
 }
-.topic_card{
-    width:100%;
-    overflow:hidden;
-}
-.card_title{
-    width:100%;
-    overflow:hidden;
-}
-.card_title h2{
-    width:100%;
-    padding:20px 0;
-    font-size:28px;
-    text-align:center;
-    border-bottom:1px solid #eee;
-    overflow:hidden;
-}
-.card_title_kuai{
-    width:100%;
-    margin:15px 0;
-    overflow:hidden;
-}
-.card_title_kuai p{
-    float:left;
-    height:20px;
-    line-height:20px;
-    overflow:hidden;
-}
-.card_title_kuai p:not(:first-child){
-    margin-left:20px;
-}
-.card_title_kuai p span{
-    float:left;
-    width:20px;
-    height:20px;
-    border-radius:3px;
-    margin-right:10px;
-    overflow:hidden;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-.card_title_kuai p.card_do span{
-    background:#fbb786;
-}
-.card_title_kuai p.card_not span{
-    border:1px solid #d7d7d7;
-}
-.card_title_kuai p.card_tag span{
-    position:relative;
-    border:1px solid #d7d7d7;
-}
-.card_title_kuai p.card_tag i{
-    position:absolute;
-    top:0;
-    right:0;
-    display:block;
-    width:8px;
-    height:8px;
-    background:url("../images/index/icon_biaoji.png") no-repeat center;
-    background-size:cover;
-    overflow:hidden;
-}
 
-.sel_topic{
+.topic_card {
     width: 100%;
-    padding-bottom:10px;
+    overflow: hidden;
+}
+
+.card_title {
+    width: 100%;
+    overflow: hidden;
+}
+
+.card_title h2 {
+    width: 100%;
+    padding: 20px 0;
+    font-size: 28px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+}
+
+.card_title_kuai {
+    width: 100%;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.card_title_kuai p {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.card_title_kuai p:not(:first-child) {
+    margin-left: 20px;
+}
+
+.card_title_kuai p span {
+    float: left;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    margin-right: 10px;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card_title_kuai p.card_do span {
+    background: #fbb786;
+}
+
+.card_title_kuai p.card_not span {
+    border: 1px solid #d7d7d7;
+}
+
+.card_title_kuai p.card_tag span {
+    position: relative;
+    border: 1px solid #d7d7d7;
+}
+
+.card_title_kuai p.card_tag i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: url("../images/index/icon_biaoji.png") no-repeat center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.sel_topic {
+    width: 100%;
+    padding-bottom: 10px;
     overflow: auto;
 }
-.single_item{
-    width:100%;
+
+.single_item {
+    width: 100%;
     border: 2px solid #99CCCC;
-    border-top:0;
-    padding-bottom:10px;
-    margin-bottom:10px;
-    overflow:hidden;
+    border-top: 0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.single_item h2{
-    color:#fff;
-    font-size:16px;
-    line-height:40px;
-    background:#99CCCC;
+
+.single_item h2 {
+    color: #fff;
+    font-size: 16px;
+    line-height: 40px;
+    background: #99CCCC;
 }
+
 .single_list li {
-    position:relative;
-    float:left;
-    width:25px;
-    height:25px;
-    text-align:center;
-    margin:15px 0 0 11px;
-    overflow:hidden;
+    position: relative;
+    float: left;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    margin: 15px 0 0 11px;
+    overflow: hidden;
 }
-.single_list li.icon_tag:after{
+
+.single_list li.icon_tag:after {
     content: "";
-    display:block;
-    position:absolute;
-    top:0;
-    right:0;
-    width:8px;
-    height:8px;
-    background:url(../images/index/icon_biaoji.png) no-repeat center;
-    background-size:cover;
-    overflow:hidden;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background: url(../images/index/icon_biaoji.png) no-repeat center;
+    background-size: cover;
+    overflow: hidden;
 }
+
 /*.single_list li:not(:nth-child(6n)){*/
-    /*margin-right:15px;*/
+/*margin-right:15px;*/
 /*}*/
 
-.card_title>p{
-    width:100%;
-    line-height:35px;
+.card_title>p {
+    width: 100%;
+    line-height: 35px;
     background: #fff2e7;
     text-align: center;
-    margin-top:10px;
-    overflow:hidden;
+    margin-top: 10px;
+    overflow: hidden;
 }
-.single_list li a{
-    display:block;
-    width:25px;
-    height:25px;
-    line-height:23px;
-    border:1px solid #d7d7d7;
-    border-radius:3px;
-    overflow:hidden;
+
+.single_list li a {
+    display: block;
+    width: 25px;
+    height: 25px;
+    line-height: 23px;
+    border: 1px solid #d7d7d7;
+    border-radius: 3px;
+    overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.single_list li a.add_color{
-    color:#fff;
-    border:1px solid #fbb786;
-    background:#fbb786;
+
+.single_list li a.add_color {
+    color: #fff;
+    border: 1px solid #fbb786;
+    background: #fbb786;
 }
+
 /*单项选择题选项 end*/
 /***************右侧 end***************/
 
 
 /*回到顶部 start*/
-#return_top{
-    right:10px;
+#return_top {
+    right: 10px;
 }
+
 /*回到顶部 end*/
 
 /*暂停做题弹出框 start*/
-.shade{
+.shade {
     display: none;
     position: fixed;
     top: 0;
     right: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,.3);
+    background: rgba(0, 0, 0, .3);
     z-index: 99;
 }
-.pop-up{
-    display:none;
-    position:fixed;
-    top:calc(50% - 185px);
-    right:calc(50% - 150px);
-    width:300px;
-    height:300px;
-    background:#fff;
-    z-index:999;
+
+.pop-up {
+    display: none;
+    position: fixed;
+    top: calc(50% - 185px);
+    right: calc(50% - 150px);
+    width: 300px;
+    height: 300px;
+    background: #fff;
+    z-index: 999;
 }
-.pop-up .pop-button{
-    margin:0 auto;
-    width:150px;
-    height:40px;
-    text-align:center;
-    line-height:40px;
-    background:#f9b830;
-    color:#fff;
-    font-size:16px;
-    border-radius:5px;
-    cursor:pointer;
+
+.pop-up .pop-button {
+    margin: 0 auto;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: #f9b830;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
 }
+
 /*暂停做题弹出框 end*/
 
 /*查看答案弹出框 start*/
-.pop-up2{
-    display:none;
+.pop-up2 {
+    display: none;
 }
-.right_answer{
-    width:94%;
-    margin:15px auto;
-    overflow:hidden;
+
+.right_answer {
+    width: 94%;
+    margin: 15px auto;
+    overflow: hidden;
 }
-.right_answer h2{
-    width:100%;
-    font-size:15px;
+
+.right_answer h2 {
+    width: 100%;
+    font-size: 15px;
 }
-.right_answer h2 i{
-    color:#f00;
+
+.right_answer h2 i {
+    color: #f00;
 }
-.right_export{
-    width:100%;
-    margin-top:10px;
-    padding:10px;
-    background:#f4f4f4;
-    overflow:hidden;
+
+.right_export {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background: #f4f4f4;
+    overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.right_export p{
-    width:100%;
-    line-height:25px;
-    color:#666;
-    margin-top:10px;
-    overflow:hidden;
+
+.right_export p {
+    width: 100%;
+    line-height: 25px;
+    color: #666;
+    margin-top: 10px;
+    overflow: hidden;
 }
+
 /*查看答案弹出框 end*/
 
 
 /***************************试卷页面 end**************************************************************/
 
 /***************************开始答题页面——报错弹出页 start**********************************************/
-.error_box{
-    width:94%;
-    margin:0 auto;
-    overflow:hidden;
+.error_box {
+    width: 94%;
+    margin: 0 auto;
+    overflow: hidden;
 }
-.error_title{
-    width:100%;
-    margin:10px 0;
-    overflow:hidden;
+
+.error_title {
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
 }
-.error_title p{
-    width:100%;
-    line-height:25px;
-    text-indent:25px;
-    border-bottom:1px solid #eee;
-    padding-bottom:10px;
-    overflow:hidden;
+
+.error_title p {
+    width: 100%;
+    line-height: 25px;
+    text-indent: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    overflow: hidden;
 }
-.error_box .layui-textarea{
-    min-height:55px;
+
+.error_box .layui-textarea {
+    min-height: 55px;
 }
-.error_box .layui-form-item{
-    margin-bottom:10px;
+
+.error_box .layui-form-item {
+    margin-bottom: 10px;
 }
-.overmark{position:fixed;background:rgba(0,0,0,.5);left:252px;top:0;right:0;bottom:0;z-index:99999;}
-.vefixed{width:96%;text-align:justify;margin:5px auto;}
-.vefixed legend{font-size:16px;}
+
+.overmark {
+    position: fixed;
+    background: rgba(0, 0, 0, .5);
+    left: 252px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+}
+
+.vefixed {
+    width: 96%;
+    text-align: justify;
+    margin: 5px auto;
+}
+
+.vefixed legend {
+    font-size: 16px;
+}
+
 /***************************开始答题页面——报错弹出页 end************************************************/
-.submit_layer{
-    position:fixed;
-    top:0;
-    z-index:9999999;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,.5);
-    display:none;
+.submit_layer {
+    position: fixed;
+    top: 0;
+    z-index: 9999999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    display: none;
 }
-.result_box{
-    position:absolute;
-    top:50%;
-    left:50%;
-    width:800px;
-    height:500px;
-    margin:-250px 0 0 -400px;
-    background:#fff;
-    padding:0 20px 20px;
-    border-radius:8px;
-    overflow:hidden;
+
+.result_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 500px;
+    margin: -250px 0 0 -400px;
+    background: #fff;
+    padding: 0 20px 20px;
+    border-radius: 8px;
+    overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.result_box .close{
-    position:absolute;
-    right:15px;
-    top:10px;
-    width:26px;
-    height:26px;
-    line-height:26px;
-    border:2px solid #bbb;
-    border-radius:50%;
-    color:#bbb;
-    font-size:24px;
-    font-weight:bold;
-    text-align:center;
-    cursor:pointer;
-    transition:all .5s;
-}
-.result_box .close:hover{
-    transform:rotate(180deg);
-}
-.result_box h1{
-    width:700px;
-    height:60px;
-    line-height:60px;
-    font-size:18px;
+
+.result_box .close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    border: 2px solid #bbb;
+    border-radius: 50%;
+    color: #bbb;
+    font-size: 24px;
+    font-weight: bold;
     text-align: center;
-    margin:0 auto;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
+    cursor: pointer;
+    transition: all .5s;
 }
-.result_c{
-    position:relative;
-    width:100%;
+
+.result_box .close:hover {
+    transform: rotate(180deg);
+}
+
+.result_box h1 {
+    width: 700px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    text-align: center;
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.result_c {
+    position: relative;
+    width: 100%;
     height: 408px;
-    background:#f4c245;
-    padding:40px 50px;
-    overflow-y:scroll;
+    background: #f4c245;
+    padding: 40px 50px;
+    overflow-y: scroll;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.result_r{
-    width:100%;
-    text-align:center;
-    overflow:hidden;
+
+.result_r {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
 }
-.layui-table th{
-    font-size:15px;
-    font-weight:bold;
-    color:#333;
-    text-align:center;
+
+.layui-table th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
 }
-.layui-table thead tr,.layui-table tbody tr{
-    border-bottom:1px solid #f4c245;
-    background:#fff;
-    color:#333;
+
+.layui-table thead tr,
+.layui-table tbody tr {
+    border-bottom: 1px solid #f4c245;
+    background: #fff;
+    color: #333;
 }
-.layui-table[lay-size=lg] td, .layui-table[lay-size=lg] th{
-    padding:15px 20px;
+
+.layui-table[lay-size=lg] td,
+.layui-table[lay-size=lg] th {
+    padding: 15px 20px;
 }
-.result_c .jiao_tu1{
-    position:absolute;
-    left:0;
-    top:0;
+
+.result_c .jiao_tu1 {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
-.result_c .jiao_tu2{
-    position:absolute;
-    right:0;
-    bottom:0;
+
+.result_c .jiao_tu2 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 /*答案解析 start*/
-.analysis{
-    width:99%;
-    background:#f1f1f1;
-    border-radius:5px;
-    padding:5px 20px 20px;
-    margin:20px 0 0 5px;
-    overflow:hidden;
+.analysis {
+    width: 99%;
+    background: #f1f1f1;
+    border-radius: 5px;
+    padding: 5px 20px 20px;
+    margin: 20px 0 0 5px;
+    overflow: hidden;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.daan{
-    width:100%;
-    height:50%;
-    line-height:45px;
-    border-bottom:1px dashed #bbb;
-    font-size:15px;
-    overflow:hidden;
-}
-.daan span{
-    float:left;
-    margin-right:20px;
-}
-.daan i.standard{
-    font-size:18px;
 
-    color:#47ad76;
+.daan {
+    width: 100%;
+    height: 50%;
+    line-height: 45px;
+    border-bottom: 1px dashed #bbb;
+    font-size: 15px;
+    overflow: hidden;
 }
-.daan i.mine{
-    font-size:18px;
-    color:#f00;
+
+.daan span {
+    float: left;
+    margin-right: 20px;
 }
-.daan_jiexi{
-    width:100%;
-    padding-top:10px;
-    overflow:hidden;
+
+.daan i.standard {
+    font-size: 18px;
+
+    color: #47ad76;
 }
-.daan_jiexi p{
-    width:100%;
-    line-height:30px;
-    margin-top:10px;
-    overflow:hidden;
+
+.daan i.mine {
+    font-size: 18px;
+    color: #f00;
 }
+
+.daan_jiexi {
+    width: 100%;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+.daan_jiexi p {
+    width: 100%;
+    line-height: 30px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
 /*答案解析 end*/

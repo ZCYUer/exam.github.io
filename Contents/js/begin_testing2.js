@@ -14,24 +14,24 @@ layui.use(['form', 'element', 'layer'], function () {
         layer = layui.layer,
         element = layui.element;
     //var _storage = JSON.parse($.cookie("vipexam"));
-    var _storage = {"msg": "登录成功","code": "1","zktoken": "63B1CsdfagFC30F95BC24BdfC68gdfgd6DCA2539Edfgds47Ffdg61","user": { "managerid": 352864, "role": 4, "account": "PDFSGSF094729473","password": null,"username": null,"lastlogintime": null,"credentialsSalt": "9d8hsdjfsogaskj2drd38jsirfi9e2fds","locked": "1","headimg": null,"collegename": "考斯系统","email": null,"sex": null,"regdate": "2023-12-25 13: 29: 38.117","phone": "ST1865264233","token": null,"issuper": false},"token": "sdfagfdsasgsgda4973jtueidsf0"};
-    console.log("_storage：：",_storage);
+    var _storage = { "msg": "登录成功", "code": "1", "zktoken": "63B1CsdfagFC30F95BC24BdfC68gdfgd6DCA2539Edfgds47Ffdg61", "user": { "managerid": 352864, "role": 4, "account": "PDFSGSF094729473", "password": null, "username": null, "lastlogintime": null, "credentialsSalt": "9d8hsdjfsogaskj2drd38jsirfi9e2fds", "locked": "1", "headimg": null, "collegename": "考斯系统", "email": null, "sex": null, "regdate": "2023-12-25 13: 29: 38.117", "phone": "ST1865264233", "token": null, "issuper": false }, "token": "sdfagfdsasgsgda4973jtueidsf0" };
+    console.log("_storage：：", _storage);
     var _token = (typeof (_storage.token) == undefined || _storage.token == null) ? "" : _storage.token;
     var _account = _storage.user.account;
     // var _storage = {};
     // var _token = "";
     // var _account = "";
     var _exid = GetQueryString("id");
-    var special =  '';
+    var special = '';
     var visits = 4;
 
-    $(".change_font i").click(function(){
+    $(".change_font i").click(function () {
         var fontSize = $(this).text();
-        $('.question_content .question_title').attr("style","font-size:"+fontSize+"px");
-        $('.question_content .options_l').attr("style","font-size:"+fontSize+"px");
-        $('.question_title pre').attr("style","font-size:"+fontSize+"px");
-        $('.layui-form-item .layui-form-radio>div').attr("style","font-size:"+fontSize+"px");
-        $('.layui-form-checkbox[lay-skin=primary] span').attr("style","font-size:"+fontSize+"px");
+        $('.question_content .question_title').attr("style", "font-size:" + fontSize + "px");
+        $('.question_content .options_l').attr("style", "font-size:" + fontSize + "px");
+        $('.question_title pre').attr("style", "font-size:" + fontSize + "px");
+        $('.layui-form-item .layui-form-radio>div').attr("style", "font-size:" + fontSize + "px");
+        $('.layui-form-checkbox[lay-skin=primary] span').attr("style", "font-size:" + fontSize + "px");
     });
 
     function RequestJson(url, params, callback) {
@@ -65,14 +65,15 @@ layui.use(['form', 'element', 'layer'], function () {
 
     var examName = "";
     var loadQuestions = function (filename) {
-        console.log("进来了",filename);
+        console.log("进来了", filename);
         $(".hand_paper .layui-btn").addClass("layui-disabled");
         // RequestJson("exam/getExamList.action", {examID: _exid, account: _account, token: _token}, function (data) {
-        //RequestJson("/data/getExamList."+ filename +".action", {examID: _exid, account: _account, token: _token}, function (data) {
-        RequestJson("https://raw.githubusercontent.com/ZCYUer/exam.github.io/master/data/getExamList."+ filename +".action", {examID: _exid, account: _account, token: _token}, function (data) {
+        //原来的//RequestJson("/data/getExamList."+ filename +".action", {examID: _exid, account: _account, token: _token}, function (data) {
+        //下面测试
+        RequestJson("/" + filename + ".action", { examID: _exid, account: _account, token: _token }, function (data) {
             if (data.code == "1") {
                 var newspecial = data.examTypeCode;
-                special = newspecial.substring(0,4);
+                special = newspecial.substring(0, 4);
                 // invisits(special,visits);
                 var _select = "";
                 var result = "";
@@ -164,15 +165,15 @@ layui.use(['form', 'element', 'layer'], function () {
                     if (_account == "f46354b31ec64c9c96919e12a9bbd610") {
                         layer.msg("游客模式下无法使用此功能，请登录后使用。");
                     } else {
-                        if($(this).hasClass("change")){
+                        if ($(this).hasClass("change")) {
                             $(this).removeClass("change");
-                            RequestJson("questioncollect/deleteQCollect.action", { account: _account, token: _token,  QuestionCode: $(this).data("id") }, function (data) {
+                            RequestJson("questioncollect/deleteQCollect.action", { account: _account, token: _token, QuestionCode: $(this).data("id") }, function (data) {
                                 if (data.code == "1") {
                                     $(this).removeClass("change");
                                 }
                                 layer.msg("取消收藏成功！");
                             });
-                        }else{
+                        } else {
                             $(this).addClass("change");
                             RequestJson("questioncollect/addQCollect.action", { account: _account, token: _token, ExamID: _exid, QuestionCode: $(this).data("id") }, function (data) {
                                 if (data.code == "1") {
@@ -187,6 +188,21 @@ layui.use(['form', 'element', 'layer'], function () {
                 });
             } else {
                 if (data.code == "9") {
+                    // layer.open({
+                    //     type: 1,
+                    //     title: false,
+                    //     closeBtn: false,
+                    //     area: '40%;',
+                    //     shade: 0.1,
+                    //     id: 'iplimit',
+                    //     scrollbar: false,
+                    //     content: "<div class='iplimit'>您的账号已在其他设备上登录，如需继续操作请重新登录。</div>",
+                    //     btnAlign: 'c',
+                    //     btn: '确 定',
+                    //     yes: function (index, layero) {
+                    //         document.location = "sdtsglogin.html";
+                    //     }
+                    // });
                     layer.open({
                         type: 1,
                         title: false,
@@ -195,11 +211,11 @@ layui.use(['form', 'element', 'layer'], function () {
                         shade: 0.1,
                         id: 'iplimit',
                         scrollbar: false,
-                        content: "<div class='iplimit'>您的账号已在其他设备上登录，如需继续操作请重新登录。</div>",
+                        content: "<div class='iplimit'>该文件出错了，需要修复。</div>",
                         btnAlign: 'c',
                         btn: '确 定',
                         yes: function (index, layero) {
-                            document.location = "sdtsglogin.html";
+                            layer.close(index);
                         }
                     });
                 } else {
@@ -213,7 +229,7 @@ layui.use(['form', 'element', 'layer'], function () {
     }
     // loadQuestions();
 
-    function loadStartFirst(){
+    function loadStartFirst() {
         $(".hand_paper .layui-btn").addClass("layui-disabled");
         $("#StartForm").addClass("layui-disabled");
     }
@@ -237,9 +253,9 @@ layui.use(['form', 'element', 'layer'], function () {
         }
         content += "<form><input type='hidden' name='questionCode' value='" + obj.questionCode + "'/><input type='hidden' class='tmp' name='refAnswer' value=''/><input type='hidden' name='grade' value='" + items.grade + "'/><input type='hidden' name='basic' value='" + items.basic + "'/><input type='hidden' name='questiontype' value='" + items.ename + "'/></form>";
         content += "<div class=\"question_btn\"><div class=\"q_tag\"><i></i>标记</div><div class=\"q_wrong\"><i></i>报错</div>";
-        if(obj.isCollect == "1"){
+        if (obj.isCollect == "1") {
             content += "<div class=\"q_collect change\"  data-id='" + obj.questionCode + "' data-prim='" + obj.primQuestion + "' data-sec='" + obj.secondQuestion + "' data-pimg='" + obj.primPic + "' data-simg='" + obj.subPrimPic + "'><i></i>收藏</div>";
-        }else{
+        } else {
             content += "<div class=\"q_collect\" data-id='" + obj.questionCode + "' data-prim='" + obj.primQuestion + "' data-sec='" + obj.secondQuestion + "' data-pimg='" + obj.primPic + "' data-simg='" + obj.subPrimPic + "'><i></i>收藏</div>";
         }
         content += "<div class='q_answer' onclick=\"lookAnswer('popup" + index + "')\"><i></i>查看答案</div></div><div class=\"biaoji\"></div> <div class='analysis' style='display:none;'><div class='daan'><span>标准答案：" + obj.refAnswer + "</i></span></div>";
@@ -338,201 +354,275 @@ layui.use(['form', 'element', 'layer'], function () {
         if ($(this).text() == "选择试卷") {
             console.log(45);
 
-            layer.alert("真题",{
+            // layer.alert("真题",{
+            //     title: '请选择护理学试卷【卫生事业招聘】',
+            //     content: '专业知识真题 || 专业知识模考<br/>基础知识真题 || 基础知识模考',
+            //     btn: [  '专真1','专真2','专真3','专真4','专真5','专真6','专真7','专真8','专真9','专真10','专真11','专真12','专真13','专真14',
+            //             '专模1','专模2','专模3','专模4','专模5','专模6','专模7','专模8','专模9','专模10','专模11','专模12','专模13','专模14',
+            //             '专模15','专模16','专模17','专模18','专模19','专模20',
+            //             '基模1','基模2','基模3','基模4','基模5','基模6','基模7','基模8','基模9','基模10','基模11','基模12','基模13'
+            //         ],
+            //     btnAlign: 'c',//剧中
+            //     btn1: function(){
+            //         loadQuestions('执业护士（实践能力）历年真题试卷汇编13');
+            //         layer.msg('专业知识真题1已加载完毕！');
+            //     }
+            // });
+            layer.open({
+                type: 2,//页面
+                title: '请选择试题',
+                area: ['800px', '350px'],
+                shade: 0.8,
+                content: 'iframe.html',
+                btn: ['确定', '取消'],
+                offset: ['120px','300px'],
+                yes: function (index, layero) {
+                    // loadQuestions('zz1');
+                    layer.close(index);
+                    var body = layer.getChildFrame('body', index);
+                    // console.log($(layero).find("iframe")[0].contentWindow);
+                    // console.log( window[layero.find('iframe')[0]['name']]);
+                    console.log(body.find("#demo-select-filter3").val());
+                    //判断进入哪个文件夹：
+                    var examType = body.find("#demo-select-filter").val();
+                    var zhentiOrmoni = body.find("#demo-select-filter2").val();
+                    if(examType == "AAA"){
+                        loadQuestions("data/getExamList." + body.find("#demo-select-filter3").val());
+                    }else if(examType == "BBB"){
+                        if(zhentiOrmoni == "AAA"){
+                            loadQuestions("护资/专业务实/真题/" + body.find("#demo-select-filter3").val());
+                        }
+                        if(zhentiOrmoni == "BBB"){
+                            loadQuestions("护资/专业务实/模拟/" + body.find("#demo-select-filter3").val());
+                        }
+                    }else if(examType == "CCC"){
+                        if(zhentiOrmoni == "AAA"){
+                            loadQuestions("护资/实践能力/真题/" + body.find("#demo-select-filter3").val());
+                        }
+                        if(zhentiOrmoni == "BBB"){
+                            loadQuestions("护资/实践能力/模拟/" + body.find("#demo-select-filter3").val());
+                        }
+                    }else{
+
+                    }
+
+                    // loadQuestions(body.find("#demo-select-filter3").val());
+                    layer.msg(body.find("#demo-select-filter3 option:selected").text() + '已加载完毕！');
+                },
+                cancel: function (index, layero) {
+                    layer.close(index);
+                }
+            });
+            // $(this).text("试卷锁定");
+            $("#StartForm").removeClass("layui-disabled");
+            console.log(67);
+        } else {
+            layer.msg("请先停止作答再选试卷哦");
+        }
+    });
+
+
+    //原来的：
+    $("#SelectExam1").on("click", function () {
+        console.log(123);
+        if ($(this).text() == "选择试卷") {
+            console.log(45);
+
+            layer.alert("真题", {
                 title: '请选择护理学试卷【卫生事业招聘】',
                 content: '专业知识真题 || 专业知识模考<br/>基础知识真题 || 基础知识模考',
-                btn: [  '专真1','专真2','专真3','专真4','专真5','专真6','专真7','专真8','专真9','专真10','专真11','专真12','专真13','专真14',
-                        '专模1','专模2','专模3','专模4','专模5','专模6','专模7','专模8','专模9','专模10','专模11','专模12','专模13','专模14',
-                        '专模15','专模16','专模17','专模18','专模19','专模20',
-                        '基模1','基模2','基模3','基模4','基模5','基模6','基模7','基模8','基模9','基模10','基模11','基模12','基模13'
-                    ],
+                btn: ['专真1', '专真2', '专真3', '专真4', '专真5', '专真6', '专真7', '专真8', '专真9', '专真10', '专真11', '专真12', '专真13', '专真14',
+                    '专模1', '专模2', '专模3', '专模4', '专模5', '专模6', '专模7', '专模8', '专模9', '专模10', '专模11', '专模12', '专模13', '专模14',
+                    '专模15', '专模16', '专模17', '专模18', '专模19', '专模20',
+                    '基模1', '基模2', '基模3', '基模4', '基模5', '基模6', '基模7', '基模8', '基模9', '基模10', '基模11', '基模12', '基模13'
+                ],
                 btnAlign: 'c',//剧中
-                btn1: function(){
+                btn1: function () {
                     loadQuestions('zz1');
                     layer.msg('专业知识真题1已加载完毕！');
                 },
-                btn2: function(){
+                btn2: function () {
                     loadQuestions('zz2');
                     layer.msg('专业知识真题2已加载完毕！');
                 },
-                btn3: function(){
+                btn3: function () {
                     loadQuestions('zz3');
                     layer.msg('专业知识真题3已加载完毕！');
                 },
-                btn4: function(){
+                btn4: function () {
                     loadQuestions('zz4');
                     layer.msg('专业知识真题4已加载完毕！');
                 },
-                btn5: function(){
+                btn5: function () {
                     loadQuestions('zz5');
                     layer.msg('专业知识真题5已加载完毕！');
                 },
-                btn6: function(){
+                btn6: function () {
                     loadQuestions('zz6');
                     layer.msg('专业知识真题6已加载完毕！');
                 },
-                btn7: function(){
+                btn7: function () {
                     loadQuestions('zz7');
                     layer.msg('专业知识真题7已加载完毕！');
                 },
-                btn8: function(){
+                btn8: function () {
                     loadQuestions('zz8');
                     layer.msg('专业知识真题8已加载完毕！');
                 },
-                btn9: function(){
+                btn9: function () {
                     loadQuestions('zz9');
                     layer.msg('专业知识真题9已加载完毕！');
                 },
-                btn10: function(){
+                btn10: function () {
                     loadQuestions('zz10');
                     layer.msg('专业知识真题10已加载完毕！');
                 },
-                btn11: function(){
+                btn11: function () {
                     loadQuestions('zz11');
                     layer.msg('专业知识真题11已加载完毕！');
                 },
-                btn12: function(){
+                btn12: function () {
                     loadQuestions('zz12');
                     layer.msg('专业知识真题12已加载完毕！');
                 },
-                btn13: function(){
+                btn13: function () {
                     loadQuestions('zz13');
                     layer.msg('专业知识真题13已加载完毕！');
                 },
-                btn14: function(){
+                btn14: function () {
                     loadQuestions('zz14');
                     layer.msg('专业知识真题14已加载完毕！');
                 },
-                btn15: function(){
+                btn15: function () {
                     loadQuestions('zm1');
                     layer.msg('专业知识模考1已加载完毕！');
                 },
-                btn16: function(){
+                btn16: function () {
                     loadQuestions('zm2');
                     layer.msg('专业知识模考2已加载完毕！');
                 },
-                btn17: function(){
+                btn17: function () {
                     loadQuestions('zm3');
                     layer.msg('专业知识模考3已加载完毕！');
                 },
-                btn18: function(){
+                btn18: function () {
                     loadQuestions('zm4');
                     layer.msg('专业知识模考4已加载完毕！');
                 },
-                btn19: function(){
+                btn19: function () {
                     loadQuestions('zm5');
                     layer.msg('专业知识模考5已加载完毕！');
                 },
-                btn20: function(){
+                btn20: function () {
                     loadQuestions('zm6');
                     layer.msg('专业知识模考6已加载完毕！');
                 },
-                btn21: function(){
+                btn21: function () {
                     loadQuestions('zm7');
                     layer.msg('专业知识模考7已加载完毕！');
                 },
-                btn22: function(){
+                btn22: function () {
                     loadQuestions('zm8');
                     layer.msg('专业知识模考8已加载完毕！');
                 },
-                btn23: function(){
+                btn23: function () {
                     loadQuestions('zm9');
                     layer.msg('专业知识模考9已加载完毕！');
                 },
-                btn24: function(){
+                btn24: function () {
                     loadQuestions('zm10');
                     layer.msg('专业知识模考10已加载完毕！');
                 },
-                btn25: function(){
+                btn25: function () {
                     loadQuestions('zm11');
                     layer.msg('专业知识模考11已加载完毕！');
                 },
-                btn26: function(){
+                btn26: function () {
                     loadQuestions('zm12');
                     layer.msg('专业知识模考12已加载完毕！');
                 },
-                btn27: function(){
+                btn27: function () {
                     loadQuestions('zm13');
                     layer.msg('专业知识模考13已加载完毕！');
                 },
-                btn28: function(){
+                btn28: function () {
                     loadQuestions('zm14');
                     layer.msg('专业知识模考14已加载完毕！');
                 },
-                btn29: function(){
+                btn29: function () {
                     loadQuestions('zm15');
                     layer.msg('专业知识模考15已加载完毕！');
                 },
-                btn30: function(){
+                btn30: function () {
                     loadQuestions('zm16');
                     layer.msg('专业知识模考16已加载完毕！');
                 },
-                btn31: function(){
+                btn31: function () {
                     loadQuestions('zm17');
                     layer.msg('专业知识模考17已加载完毕！');
                 },
-                btn32: function(){
+                btn32: function () {
                     loadQuestions('zm18');
                     layer.msg('专业知识模考18已加载完毕！');
                 },
-                btn33: function(){
+                btn33: function () {
                     loadQuestions('zm19');
                     layer.msg('专业知识模考19已加载完毕！');
                 },
-                btn34: function(){
+                btn34: function () {
                     loadQuestions('zm20');
                     layer.msg('专业知识模考20已加载完毕！');
                 },
 
-                btn35: function(){
+                btn35: function () {
                     loadQuestions('jm1');
                     layer.msg('基础知识模考1已加载完毕！');
                 },
-                btn36: function(){
+                btn36: function () {
                     loadQuestions('jm2');
                     layer.msg('基础知识模考2已加载完毕！');
                 },
-                btn37: function(){
+                btn37: function () {
                     loadQuestions('jm3');
                     layer.msg('基础知识模考3已加载完毕！');
                 },
-                btn38: function(){
+                btn38: function () {
                     loadQuestions('jm4');
                     layer.msg('基础知识模考4已加载完毕！');
                 },
-                btn39: function(){
+                btn39: function () {
                     loadQuestions('jm5');
                     layer.msg('基础知识模考5已加载完毕！');
                 },
-                btn40: function(){
+                btn40: function () {
                     loadQuestions('jm6');
                     layer.msg('基础知识模考6已加载完毕！');
                 },
-                btn41: function(){
+                btn41: function () {
                     loadQuestions('jm7');
                     layer.msg('基础知识模考7已加载完毕！');
                 },
-                btn42: function(){
+                btn42: function () {
                     loadQuestions('jm8');
                     layer.msg('基础知识模考8已加载完毕！');
                 },
-                btn43: function(){
+                btn43: function () {
                     loadQuestions('jm9');
                     layer.msg('基础知识模考9已加载完毕！');
                 },
-                btn44: function(){
+                btn44: function () {
                     loadQuestions('jm10');
                     layer.msg('基础知识模考10已加载完毕！');
                 },
-                btn45: function(){
+                btn45: function () {
                     loadQuestions('jm11');
                     layer.msg('基础知识模考11已加载完毕！');
                 },
-                btn46: function(){
+                btn46: function () {
                     loadQuestions('jm12');
                     layer.msg('基础知识模考12已加载完毕！');
                 },
-                btn47: function(){
+                btn47: function () {
                     loadQuestions('jm13');
                     layer.msg('基础知识模考13已加载完毕！');
                 },
@@ -684,9 +774,9 @@ layui.use(['form', 'element', 'layer'], function () {
     function CreateJson() {
         var questions = [];
         $("form").each(function () {
-            if($(this).serializeArray()[1].value==""){
+            if ($(this).serializeArray()[1].value == "") {
 
-            }else{
+            } else {
                 questions.push(JsonTools($(this).serializeArray()));
             }
 
@@ -730,6 +820,7 @@ layui.use(['form', 'element', 'layer'], function () {
             closeBtn: 1,
             btn: '关 闭',
             btnAlign: 'c',
+            offset: ['120px','300px'],
             scrollbar: false
         });
     }
@@ -753,27 +844,27 @@ layui.use(['form', 'element', 'layer'], function () {
 
 
         if (_storage.user.role <= 4) {
-            invisits(special,visits);
+            invisits(special, visits);
             $("#downLoad").attr("href", "web/getExamWordByStu?examID=" + _exid + "&account=" + _account + "&token=" + _token);
-        }else{
+        } else {
             layer.msg("请登录后下载试卷 😇😇");
         }
     });
     loadWord();
     function loadWord() {
         if (_storage.user.role == "3") {
-            invisits(special,visits);
+            invisits(special, visits);
 
             $("#outWord").attr("href", "web/getExamWord?examID=" + _exid + "&account=" + _account + "&token=" + _token);
         } else {
             $("#outWord").on("click", function () {
-                    if (!_begin) {
-                        layer.msg("请点击开始答题按钮。");
-                    } else {
-                        // layer.msg("抱歉！您的权限不足，请使用教师账号下载文件。");
-                        layer.msg("抱歉哈！您的权限不足，请联系 Mr.ZCY 下载文件 😁😁");
-                    }
+                if (!_begin) {
+                    layer.msg("请点击开始答题按钮。");
+                } else {
+                    // layer.msg("抱歉！您的权限不足，请使用教师账号下载文件。");
+                    layer.msg("抱歉哈！您的权限不足，请联系 Mr.ZCY 下载文件 😁😁");
                 }
+            }
             );
         }
     }
